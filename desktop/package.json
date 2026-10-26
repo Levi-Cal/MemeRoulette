@@ -1,0 +1,36 @@
+{
+  "name": "meme-roulette",
+  "productName": "Meme Roulette",
+  "version": "1.0.0",
+  "description": "Random memes from around the world",
+  "main": "main.js",
+  "author": "Levi-Cal",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis portable --publish never"
+  },
+  "devDependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.levi.memeroulette.desktop",
+    "productName": "Meme Roulette",
+    "directories": { "output": "dist" },
+    "files": ["main.js", "preload.js", "web/**", "assets/**"],
+    "win": {
+      "target": ["nsis", "portable"],
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "MemeRoulette-Setup.exe"
+    },
+    "portable": {
+      "artifactName": "MemeRoulette-Portable.exe"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#0E0E11" />
+  <title>Meme Roulette</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">🎰</div>
+      <div>
+        <div class="name">Meme Roulette</div>
+        <div class="tag" id="tag">memes from around the world</div>
+      </div>
+    </div>
+    <div class="tabs">
+      <button class="tab active" data-tab="roll">Roll</button>
+      <button class="tab" data-tab="saved">Saved <span id="savedCount" class="count">0</span></button>
+    </div>
+  </header>
+
+  <nav class="regions" id="regions"></nav>
+
+  <!-- Roll -->
+  <main id="roll" class="view">
+    <div class="stage" id="stage">
+      <div class="card" id="card">
+        <div class="imgwrap" id="imgwrap" title="Click to save">
+          <img id="meme" alt="" draggable="false" />
+          <div class="hint" id="hint">tap to save</div>
+          <div class="burst" id="burst"><span>💾</span><b>Saved!</b></div>
+        </div>
+        <div class="meta">
+          <div class="title" id="title"></div>
+          <div class="sub">
+            <span class="pill" id="where"></span>
+            <span id="ups"></span>
+            <span class="spacer"></span>
+            <button class="link" id="source">source ↗</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="status" id="status">
+        <div class="spinner"></div>
+        <div id="statusText">Spinning the wheel…</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="ctl" id="prev" title="Previous (←)">‹</button>
+      <button class="ctl save" id="save" title="Save (S)">💾 <span>Save</span></button>
+      <button class="ctl" id="share" title="Share">↗</button>
+      <button class="ctl next" id="next" title="Next (→ or Space)">Next ›</button>
+    </div>
+  </main>
+
+  <!-- Saved -->
+  <main id="saved" class="view" hidden>
+    <div class="savedhead">
+      <div>
+        <h2>Your stash</h2>
+        <div class="muted" id="savedWhere"></div>
+      </div>
+      <button class="ghost" id="openFolder">Open folder</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="sources.js"></script>
+  <script src="native.js"></script>
+  <script src="memes.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
